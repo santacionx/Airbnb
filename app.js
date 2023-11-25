@@ -61,7 +61,6 @@ app.post("/listings", async (req, res) => {
     location: req.body.listing.location
     // Add other fields as needed
   });
-console.log(newListing);
   try {
     await newListing.save();
     res.redirect("/listings");
@@ -71,9 +70,6 @@ console.log(newListing);
     res.status(500).send("Error creating listing");
   }
 });
-
-// Assuming your Listing model schema looks like this:
-
 
    
   //Edit Route
