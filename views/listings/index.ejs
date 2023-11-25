@@ -1,15 +1,20 @@
-<%- include("../includes/head.ejs")%>
-  <body>
-    <body>
-      <h3>All Listings</h3>
-      <form method="GET" action="/listings/new">
-        <button>Create New Listing</button>
-      </form>
-      <ul>
-        <% for(let listing of allListings) { %>
-        <li><a href="/listings/<%= listing._id %>"> <%= listing.title %> </a></li>
-        <% } %>
-      </ul>
-      <%- include("../includes/footer.ejs")%>
-    </body>
+<% layout('/layouts/boilerplate') -%>
+<body>
+  <h3 class="heading">All Listings</h3>
+  <div class="container1">
+    <% for(let listing of allListings) { %>
+      <% if (listing.image.url) { %>
+        <a href="/listings/<%= listing._id %>">
+          <div class="card col-lg-4 col-md-4 col-sm-6 col-12" style="width: 17rem;">
+            <img src="<%= listing.image.url%>" class="card-img-top show-img" alt="listing image" style="height:15rem;">
+            <div class="card-body">
+              <p class="card-text"><%= listing.title %></p>
+              <p class="card-text">&#8377; <%= listing.price.toLocaleString("en-IN") %>/night</p>
+            </div>
+          </div>
+        </a>
+      <% } %>
+    <% } %>
+  </div>
+</body>
 </html>

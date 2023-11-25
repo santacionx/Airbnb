@@ -1,19 +1,27 @@
-<%- include("../includes/head.ejs")%>
-<body>
+<% layout('/layouts/boilerplate') -%>
+<div class="row">
+  <div class="col-8 offset-2">
     <h3>Listing Details :</h3>
-    <ul>
-      <li><%= listing.title %></li>
-      <li><%= listing.description %></li>
-      <li>&#8377; <%= listing.price.toLocaleString("en-IN") %></li>
-      <li><%= listing.location %></li>
-      <li><%= listing.country %></li>
-    </ul>
-    <br />
-    <a href="/listings/<%= listing._id %>/edit">Edit this Listing</a>
-    <br /><br />
-    <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
-      <button>Delete this listing</button>
-    </form>
-    <%- include("../includes/footer.ejs")%>
-  </body>
+    <div class="card col-8 offset-2">
+      <img src="<%= listing.image.url ? listing.image.url: listing.image %>" class="card-img-top show-img" alt="listing image">
+      <div class="card-body">
+        <b><p class="card-text"><%= listing.title %></p></b>
+        <p class="card-text"><%= listing.description %></p>
+        <p class="card-text">&#8377; <%= listing.price.toLocaleString("en-IN") %>/night</p>
+        <p class="card-text"><%= listing.location %></p>
+        <p class="card-text"><%= listing.country %></p>
+      </div>
+      <div class="btns">
+        <a class="btn btn-dark" href="/listings/<%= listing._id %>/edit">Edit </a>
+        <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+          <button class="btn btn-danger offset-4">Delete</button>
+        </form>
+      </div>
+    </div>
+
+   
+  </div>
+</div>
+<!-- Add any scripts or additional HTML content here -->
+</body>
   </html>

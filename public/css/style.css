@@ -1,3 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 body{
-    background-color: pink;
+    font-family: 'DM Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Single Day', cursive;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.4s, color 0.4s;
+  /* Other body styles */
 }
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+}
+
+.dark-mode {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+}
+
+.navbar{
+    height: 5rem;
+}
+.fa-airbnb{
+    color:#fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color:#222222 !important ;
+}
+.finfolinks a{
+    text-decoration: none;
+    color: #222222;
+}
+.finfolinks a:hover{
+    text-decoration: underline;
+   
+}
+.finfolinks,.f-info-socials{
+    width:100%;
+}
+
+.f-info-socials, .finfobrand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i{
+    margin-right: 1rem;
+    vertical-align: middle;
+    font-size: 1.2rem;
+}
+.footer-info{
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+.container{
+    flex:1 !important;
+}
+
+  .container1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    border: none !important;
+    margin: 1rem;
+    padding: 0.7rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 100%;
+  }
+
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .card img {
+ 
+    object-fit: cover !important;
+    border-radius: 1rem !important;
+    width: 100% !important;
+  }
+
+  .card-body {
+    padding: 0;
+  }
+
+  .card-text {
+    margin-top: 1rem;
+    
+  }
+  .card-text p{
+    font-weight: 400 !important;
+  }
+  a{
+    text-decoration: none !important;
+  }
+ 
+.formedit{
+    margin-left: 2rem;
+}
+/* new page */
+.addbtn{
+    background-color: #fe424d !important;
+    border: none !important;
+    border-radius: 0.5rem !important;
+}
+/* show page*/
+.show-img{
+    height: 30vh;
+}
+.btns{
+    display: flex;
+}
+.card {
+    width: 17.5rem;
+    /* Add any specific styles for the card */
+  }
+
+  .show-img {
+    height: 15rem;
+    /* Adjust image height */
+  }
+
+  .btns {
+    margin-top: 20px;
+    /* Adjust margin as needed */
+  }
+  /* Style for the dark button */
+.btn-dark {
+    background-color: #333; /* Change background color */
+    color: #fff; /* Change text color */
+    padding: 10px 20px; /* Adjust padding */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Round corners */
+  }
+  
+  /* Style for the delete button */
+  .btn-danger {
+    background-color: #d9534f; /* Change background color */
+    color: #fff; /* Change text color */
+    padding: 10px 20px; /* Adjust padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Round corners */
+  }
+  
+  /* Optional: Hover effects */
+  .btn-dark:hover,
+  .btn-danger:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+    cursor: pointer; /* Change cursor to pointer */
+  }
