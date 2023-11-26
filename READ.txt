@@ -1,0 +1,27 @@
+middleware are in express : function 
+after server: recieves req, brfore client: response send  can access: req,res
+possible: chaining  can : send res
+
+method-ovveride (put,del,update http req)
+bodyParser
+express.static
+express.urlencoded
+app.use(express.urlencoded({extended:true}))
+app.use(express.static(path.join(__dirname,"/public")))
+
+error handling:
+mongodb: write sepaerate function for status codes use it whenver possible
+async : try catch , next(new ExpressError(400,"not found)) , best is ayncwrap()
+app.use((err, req, res, next) => {
+  let { status = 500, message = 'some error' } = err;
+  res.status(status).send(message);
+});
+const handleValidationErr=(err)=>{
+  console.log("validation err please check")
+  return err;
+}
+function asyncWrap(fn) {
+  return function (req, res, next) {
+    fn(req, res, next).catch(next);
+  };
+}
