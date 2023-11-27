@@ -1,55 +1,52 @@
-
-  <!-- Adding missing layout inclusion -->
-  <% layout('/layouts/boilerplate') -%>
-  <body>
+<!-- Adding missing layout inclusion -->
+<% layout('/layouts/boilerplate') -%>
+<body>
   <div class="row">
     <div class="col-8 offset">
       <h3>Edit your Listing</h3>
-      <form  class="needs-validation formedit" method="POST" action="/listings/<%= listing._id %>?_method=PUT"  novalidate>
+      <form class="needs-validation formedit" method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate>
+        <!-- Title Field -->
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
-          <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required />
-          <div class="valid-feedback">
-            Title Looks good!
-         </div>
-         <div class="invalid-feedback">
-           Please choose a valid Title.
-         </div>
+           <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" />
         </div>
+
+        <!-- Other Fields - Description, Image, Price, Country, Location -->
+        <!-- Keep the value attribute to pre-fill, but remove 'required' -->
+        
+        <!-- Description Field -->
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
-          <div class="invalid-feedback">
-            Please enter short description.
-          </div>
+          <textarea name="listing[description]" class="form-control"><%= listing.description %></textarea>
         </div>
+        
+        <!-- Image Field -->
         <div class="mb-3">
           <label for="image" class="form-label">Image</label>
-          <input name="listing[image][url]" value="<%=listing.image.url%>" type="text" class="form-control" />
+          <input name="listing[image][url]" value="<%= listing.image.url %>" type="text" class="form-control" />
         </div>
+
+        <!-- Price and Country Fields -->
         <div class="row">
+          <!-- Price Field -->
           <div class="mb-3 col-md-4">
             <label for="price" class="form-label">Price</label>
-            <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control"required />
-            <div class="invalid-feedback">
-              Please enter a valid price.
-            </div>
+            <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" />
           </div>
+          <!-- Country Field -->
           <div class="mb-3 col-md-8">
             <label for="country" class="form-label">Country</label>
-            <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required/>
-            <div class="invalid-feedback">
-              Please enter valid country.
-            </div>
+            <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" />
           </div>
         </div>
+
+        <!-- Location Field -->
         <div class="mb-3">
           <label for="location" class="form-label">Location</label>
-          <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control"required />
-          <div class="invalid-feedback">
-            Please enter valid Location.
-          </div>
+          <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" />
         </div>
+
+        <!-- Edit Button -->
         <button class="btn btn-dark mb-3 addbtn">Edit</button>
       </form>
     </div>

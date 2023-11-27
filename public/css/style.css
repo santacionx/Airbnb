@@ -178,3 +178,36 @@ body{
     display: inline-flex; 
     align-items: center;
   }
+  .listing-title {
+    /* Style the listing title */
+    /* Example styles */
+    padding-top: 50px; 
+    text-align: center;
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+/* reviews card on show  */
+.airbnb-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  overflow: hidden; /* Hide overflowing content */
+}
+
+.airbnb-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 1rem !important; /* Adding padding to the card content */
+}
+
+.card-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Number of lines to show before ellipsis */
+  -webkit-box-orient: vertical;
+}

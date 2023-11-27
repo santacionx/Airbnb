@@ -25,3 +25,135 @@ function asyncWrap(fn) {
     fn(req, res, next).catch(next);
   };
 }
+
+stage 0:
+basic setup: 
+    installing 
+    "ejs": "^3.1.9",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.18.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.0.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.0.1",
+    "uuid": "^9.0.1"
+  touch app.js
+  database setup: mongodb start the mongodb using brew 
+      app.js write basic access the modules express,mongoose connect db: wanderlust
+      create folder models for schema setup here the listing.js contains schema return promise 
+      async and await req!
+      listing.js: title,description,image,price,location,country
+      initializing database: predata : init folder: data.js already taken , index.js run into wanderlust db saves the data
+      routes: crud operation
+      index route: index.ejs GET /listings -> all listing
+      show route(read) : show.ejs  GET /listing:id 
+      new & create route (create): new.ejs [form]:GET /listings/new 
+      create route :[method-override] POST /listings (db store) thats all 
+      [update] edit and update : edit route : edit.ejs[form] GET /listings/:id/edit
+      Update Route:[method-override] PUT /listings/:id
+      Delete Route:[method-override] DELETE /listings/:id
+
+stage 1:
+      creating boiler plate
+      navbar (ejs-mate)layouts boilerplate.ejs
+      footer (ejs-mate)layouts/layouts.ejs
+      styling index.ejs using bootstrap and css
+      styling new.ejs (form)
+      styling edit.ejs (card)
+      styling show.ejs
+
+stage 2:
+      client side validation (form)
+      success and failure text
+      custom error handling
+ utils folder :
+      add wrapasync
+      add expresserror
+      error.ejs
+      validation for schema(middleware) [schema.js]  npm joi [backend]
+
+Project phase 2
+stage 1:
+  handling deletion : using mongoose middlewares
+  Query middleware is supported for the following Query functions. Query middleware executes when you call exec() or then() on a Query object, or await on a Query object.
+  In query middleware functions, this refers to the query.
+  case 1: account deleted ! all data deleted (cascading)
+  use: 2 middlewares :pre ,post
+  case 2: account deleted ! no data deleted
+  mongoose middlewares : pre , post
+  
+  create review model : cooment(string) , ratings(1 to 5), createdAt(date,time)
+  create reviews:
+  submmiting form -> review added
+  POST: /listings/:id/reviews
+  
+  validation for reviews
+  render reviews
+  styling reviews
+  deleting reviews:  reviews -> FROM  LISTINGS, 
+    deleting reviews:  LISTINGS  USING mongoose middlewares : pre , post, 
+  handling delete listing
+
+stage 2:
+  express router ?
+  using express router
+  restructuring listings
+  restructuring reviews
+  web cookies
+  sending cookies 
+  cookie parser 
+  signed cookies
+
+stage 3: 
+   state ? 
+   express session
+   exploring session options
+   storing & using session info 
+   using connect-flash
+   using res.locals
+   implement session :  cookie-parser
+   cookie in session options: express-session: npm : cookie.expires, cookie.maxAge
+   implement flash:
+  
+   app.js :
+   app.use(flash());
+   app.use(flash());
+   app.use((req,res,next)=>{
+     res.locals.success=req.flash("success");
+     next()
+    })
+ 
+  listing.js
+   req.flash("success"," New Listing Created !")
+   views/index.ejs
+   <h1><%=success%></h1>
+
+   flash success includes 
+   flash failure includes
+
+stage 4: 
+ authentication vs autorization
+ gow passwords are stored
+ what is hashing
+ what is salting
+ passport ?
+ user model 
+ configuring strategy
+ demo user
+ signup user - GET
+ signup user POST
+ LOGIN user
+
+stage 5:
+ connecting login route
+ logout user
+ add styling
+ login after signup
+ post-login page
+ listing owner
+ start with autorization
+ autorization for /LISTINGS
+ autorization for /reviews
+ 
+
+
