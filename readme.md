@@ -84,4 +84,54 @@ This phase aims to establish the foundational structure and initial user interfa
 
 
 -----------------------------
+-----------------------------
+
 # End of Phase 1
+# Project Phase 2
+
+## Stage 1: Deletion Handling & Review Creation
+- Handling deletion using Mongoose middlewares:
+  - Cascading deletion vs. no data deletion scenarios
+- Review model creation:
+  - Fields: comment (string), ratings (1 to 5), createdAt (date, time)
+- Review creation via form submission:
+  - Endpoint: POST: /listings/:id/reviews
+- Validation, rendering, and styling of reviews
+- Deleting reviews from listings using Mongoose middlewares (pre, post)
+- Implementation of delete listing functionality
+
+## Stage 2: Express Router & Restructuring
+- Implementation of Express Router
+- Restructuring of listings and reviews
+- Handling web cookies:
+  - Sending cookies, using cookie parser, handling signed cookies
+
+## Stage 3: Session Management & Flash Messages
+- Introduction to state management
+- Utilization of Express session:
+  - Exploration of session options, storage, and usage
+- Implementation of flash messages:
+  - Configuration in app.js, listing.js, and views
+
+## Stage 4: Authentication, Authorization & User Management
+- Understanding authentication vs. authorization
+- Storage of passwords: hashing, salting
+- Overview of Passport.js for authentication
+- Creation of user model (user.js)
+- Configuration of Passport.js strategies
+- Implementation of signup, login, and logout routes
+- Redirection post-login based on the original page
+- Set up authorization for listing owners
+
+## Stage 5 Tasks
+1. Connect the Login Route:
+   - Implementation restricting creating a new listing without being logged in
+2. Implement Logout Functionality:
+   - Implement logout using Passport.js
+3. Add Styling to Enhance UI
+4. Enable Login After Signup Process
+5. Develop the Post-Login Page
+6. Set Up Authorization for Listing Owners and Reviews:
+   - Implement authorization for `/LISTINGS` and `/reviews`
+
+# End of Phase 2

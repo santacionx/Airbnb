@@ -10,8 +10,9 @@ async function main() {
 
     // Clear existing data and insert new listings
     await Listing.deleteMany({});
+    initData.data= initData.data.map((obj)=>({...obj,owner:"6565123b45f420953b59f16c"}))
     await Listing.insertMany(initData.data);
-
+    
     console.log("Data was initialized");
     mongoose.connection.close();
   } catch (error) {

@@ -2,7 +2,7 @@
 
 <body>
   <h3 class="heading">All Listings</h3>
-  <div class="container1">
+  <div class="container1 no-side-margin">
     <% for(let listing of allListings) { %>
       <% if (listing.image.url) { %>
         <a href="/listings/<%= listing._id %>">
@@ -10,7 +10,7 @@
             <img src="<%= listing.image.url%>" class="card-img-top show-img" alt="listing image" style="height:15rem;">
             <div class="card-body">
               <p class="card-text"><%= listing.title %></p>
-              <p class="card-text">&#8377; <%= listing.price.toLocaleString("en-IN") %>/night</p>
+              <p class="card-text">&#8377; <%= listing.price.toLocaleString("en-IN") %> night</p>
             </div>
           </div>
         </a>

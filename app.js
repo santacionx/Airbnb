@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000;
 const path=require("path");
+
 const Listing=require("./models/listing.js")
 const Review=require("./models/review.js")
 const { v4: uuidv4 } = require('uuid');
@@ -10,9 +11,16 @@ const ejsmate = require('ejs-mate')
 const wrapAsync=require("./utils/wrapAsync.js")
 const ExpressError=require("./utils/ExpressError.js")
 const Joi = require('joi');
-const { listingSchema, reviewSchema } = require('./schema.js'); 
+const { listingSchema, reviewSchema,isAuthor } = require('./schema.js'); 
 const listings=require("./router/listing.js")
 const reviews=require("./router/review.js")
+const users=require("./router/user.js")
+// passport
+const passport = require('passport')
+const LocalStrategy=require("passport-local")
+const User=require("./models/user.js");
+
+
 app.use(express.static(path.join(__dirname,"public")));
 
 // cookies
@@ -59,14 +67,27 @@ app.use(session({
   }
 }))
 app.use(flash());
-
+// password Authenticate
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User. authenticate() ));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+// to render into views 
 app.use((req,res,next)=>{
   res.locals.success=req.flash("success");
   res.locals.error=req.flash("error");
+  // nav.js 
+  res.locals.curUser=req.user;
   next()
 })
+
+
+
+
 app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews); 
+app.use("/",users);
 
 app.all("*",(req,res,next)=>{
   next(new ExpressError(404,"page not found"));

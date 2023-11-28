@@ -73,7 +73,7 @@ body{
     flex:1 !important;
 }
 
-  .container1 {
+.container1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -210,4 +210,9 @@ body{
   display: -webkit-box;
   -webkit-line-clamp: 3; /* Number of lines to show before ellipsis */
   -webkit-box-orient: vertical;
+}
+
+.no-side-margin {
+  margin-left: 0;
+  margin-right: 0;
 }
