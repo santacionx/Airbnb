@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config(); // Invoke the config function
+}
+
 const express = require('express')
 const app = express()
 const port = 3000;
@@ -52,9 +56,9 @@ async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
 
 }
-app.get("/",(req,res)=>{
-    res.send("air bnb");
-})
+// app.get("/",(req,res)=>{
+//     res.send("air bnb");
+// })
 // session and flash 
 app.use(session({
   secret: 'secret code',

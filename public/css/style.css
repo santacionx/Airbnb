@@ -216,3 +216,106 @@ body{
   margin-left: 0;
   margin-right: 0;
 }
+
+/* .filters{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem !important;
+} */
+
+.filter {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter i {
+  margin-right: 5px;
+}
+.filter:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+
+.filter:hover {
+  background-color: #f0f0f0;
+}
+.navbar {
+  height: 3.5rem; /* Adjust the height as needed */
+}
+
+/* Adjust other styles for the navbar items, if necessary */
+.navbar-brand {
+  margin-right: 1rem; /* Add spacing to the right of the brand icon */
+}
+
+.navbar-nav {
+  gap: 1rem; /* Add some space between navigation links */
+}
+
+.nav-link {
+  padding: 0.5rem 1rem; /* Adjust padding for the links */
+}
+.filters {
+  background-color: #f7f7f7;
+  padding: 10px;
+  border-radius: 8px;
+  /* opacity: 0.7; */
+  color: black;
+
+}
+
+.filter {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 5rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  opacity: 0.7;
+  text-decoration: none;
+
+}
+
+.filter i {
+  margin-right: 5px;
+}
+
+.filter:hover {
+  color: #fe424d;
+  opacity: 1;
+}
+ /* Navbar styles */
+ .navbar {
+  background-color: #1e1e1e; /* Navbar background color */
+}
+
+.navbar-nav .nav-link {
+  background-color: #f7f7f7;
+  padding: 10px;
+  border-radius: 8px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease; /* Adding transition for opacity change */
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: #f7f7f7; /* Keeping the background color consistent */
+  color: #fe424d; /* Navbar link hover color */
+  opacity: 1;
+}
+
+.navbar-toggler {
+  border-color: #ffffff; /* Navbar toggler color */
+}
+
+.navbar-toggler-icon {
+  background-color: #ffffff; /* Navbar toggler icon color */
+}

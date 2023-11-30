@@ -1,41 +1,39 @@
 <% layout('/layouts/boilerplate') -%>
-<body>
-    <div class="container justify-content-center align-items-center">
-        <div class="row">
-      <div class="col-8 offset-2">
-        <h3>Signup</h3>
-        <form action="/signup" method="post" class="needs-validation" novalidate>
-          <div class="form-group">
-            <label for="username" class="form-label">Username</label>
-            <input name="username" id="username" placeholder="Enter username" type="text" class="form-control" required />
-            <div class="valid-feedback">
-              Wow! Username is perfect!
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input name="email" id="email" placeholder="Enter email" type="email" class="form-control" required />
-            <div class="valid-feedback">
-              Wow! Email is unique!
-            </div>
-            <div class="invalid-feedback">
-              Please provide a valid email.
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="password" class="form-label">Password</label>
-            <input name="password" id="password" placeholder="Enter password" type="password" class="form-control" required />
-            <div class="valid-feedback">
-              Password is strong!
-            </div>
-            <div class="invalid-feedback">
-              Password must be at least 8 characters long.
-            </div>
-          </div>
-          <button class="btn btn-success" type="submit">Signup</button>
-        </form>
+<body class="bg-gray-100">
+  <div class="container mx-auto mt-10">
+      <div class="w-full max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold mb-6 text-center">Signup</h3>
+          <form action="/signup" method="post" class="needs-validation" novalidate>
+              <div class="mb-4">
+                  <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+                  <input name="username" id="username" placeholder="Enter username" type="text"
+                      class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      autocomplete="off" required />
+                  <div class="valid-feedback">Wow! Username is perfect!</div>
+              </div>
+              <div class="mb-4">
+                  <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                  <input name="email" id="email" placeholder="Enter email" type="email"
+                      class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      autocomplete="off" required />
+                  <div class="valid-feedback">Wow! Email is unique!</div>
+                  <div class="invalid-feedback">Please provide a valid email.</div>
+              </div>
+              <div class="mb-4">
+                  <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                  <input name="password" id="password" placeholder="Enter password" type="password"
+                      class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      required />
+                  <div class="valid-feedback">Password is strong!</div>
+                  <div class="invalid-feedback">Password must be at least 8 characters long.</div>
+              </div>
+              <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="submit">
+                  Signup
+              </button>
+          </form>
       </div>
-    </div>
   </div>
 </body>
+
 </html>

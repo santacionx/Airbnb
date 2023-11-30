@@ -32,26 +32,32 @@ module.exports.isOwner=async(req,res,next)=>{
       next();
 }
 
-module.exports.validateListing=(req,res,next)=>{
-    let {error}=listingSchema.validate(req.body.listing);
-    console.log(req.body.listing.image)
-    if (error) {
-      let errormsg= error.details.map(err => err.message).join(', ')
+module.exports.validateListing = (req, res, next) => {
+  if (!req.body.listing) {
+      throw new ExpressError(400, "Listing data not found in request body");
+  }
+  const { error } = listingSchema.validate(req.body.listing);
+  if (error) {
+      const errormsg = error.details.map(err => err.message).join(', ');
       throw new ExpressError(400, errormsg);
-    }else{
+  } else {
       next();
-    }
+  }
+};
+
+module.exports.validateReview = (req, res, next) => {
+  if (!req.body.review) {
+      throw new ExpressError(400, "Review data not found in request body");
   }
 
-  module.exports.validateReview = (req, res, next) => {
-    let { error } = reviewSchema.validate(req.body.review); 
-    if (error) {
-      let errormsg = error.details.map(err => err.message).join(', ');
+  const { error } = reviewSchema.validate(req.body.review);
+  if (error) {
+      const errormsg = error.details.map(err => err.message).join(', ');
       throw new ExpressError(400, errormsg);
-    } else {
+  } else {
       next();
-    }
-  };
+  }
+};
 
   module.exports.isAuthor=async(req,res,next)=>{
     let { id,reviewId } = req.params;

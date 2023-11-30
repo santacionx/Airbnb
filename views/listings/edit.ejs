@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-8 offset">
       <h3>Edit your Listing</h3>
-      <form class="needs-validation formedit" method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate>
+      <form class="needs-validation formedit" method="POST" action="/listings/<%= listing._id %>?_method=PUT" enctype="multipart/form-data" novalidate>
         <!-- Title Field -->
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
@@ -19,13 +19,20 @@
           <label for="description" class="form-label">Description</label>
           <textarea name="listing[description]" class="form-control"><%= listing.description %></textarea>
         </div>
-        
-        <!-- Image Field -->
+       
         <div class="mb-3">
-          <label for="image" class="form-label">Image</label>
-          <input name="listing[image][url]" value="<%= listing.image.url %>" type="text" class="form-control" />
-        </div>
-
+          <label for="image" class="form-label"> Preview Image</label>
+          <div style="height: 200px; width: 200px; border: 2px solid #ccc; border-radius: 10px; overflow: hidden; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+              <img src="<%= listing.image.url %>" alt="Original Listing Image" class="img-fluid d-block w-100 h-100" style="object-fit: cover; transition: border-color 0.3s ease;">
+          </div>
+      </div>
+      
+        
+        <div class="mb-3">
+          <label for="image" class="form-label"> Upload Image</label>
+          <input name="listing[image]" type="file" class="form-control"  />
+          
+         </div>
         <!-- Price and Country Fields -->
         <div class="row">
           <!-- Price Field -->

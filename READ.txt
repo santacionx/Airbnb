@@ -282,4 +282,68 @@ stage 4:
     ________________________________________+________________________________________
 
     Project phase 3 : PRODUCTION 
+    stage 1: 
+          MVC ARCHITECTURE [STRUCTURING THE CODE]
+          REVIEWS: STARS [starability.CSS]
+          IMAGE UPLOAD : 
+              STAGE A : WHERE USE LOCAL STORAGE WITH IN THE FOLDER OF THE PROJECT 
+              STAGE B:  USE CLOUD TO STORE IMAGES AND ACCESS VIA links
+              STAGE C:  UPLOAD ON MONGO DB
+          PROBLEM : FILES CAN'T BE SENT TO BACKEND , STORAGE PROBLEM : RESOLVE USING CLOUD [STORE FILES]  STORE : MONGO DB LINK
+          
+        STAGE A : WHERE USE LOCAL STORAGE WITH IN THE FOLDER OF THE PROJECT 
+          FILES : SEND FROM FRONTEND TO BACKEND 
+              MANIPULATE FORM 
+                  enctype:"multipart/form data"  s add in form 
+                  // the output when i create a new form an empty {} obj return becoz it cannot parse the file 
+                  router.post("/",(req,res)=>{
+                        res.send(req.body)
+                      });
+              Solution: npm i multer
+              const multer =require("multer");
+              const upload = multer({dest: "uploads/"});      
+
+              to use this  app.post(,upload.single('listing[image])) : this means uploading inside listing image  return req.file
+
+      STAGE B:  USE CLOUD TO STORE IMAGES AND ACCESS VIA links
+
+        USED APP : CLOUDINARY WEBSITE Signup
+            CREATE Cloudinaryenv.js : to acces cloud 
+            Create : .env file : store : api key name enctype, secret keys etc 
+            to access  to my app.js project: i need to install [npm i dotenv]
+        app.js
+            if(process.env.NODE_ENV != "production"){
+              require("dotenv").config()
+            }
+              .env 
+          CLOUD_NAME, CLOUD_API_KEY,CLOUD_API_KEY_SECRET codes from cloud 
+
+          to store into cloud easily 
+          install: Cloudinary multer-storage-Cloudinary, npm i cloudinary
+          Cloudinaryenv.js : to acces cloud 
+              const cloudinary = require('cloudinary').v2;
+              const { CloudinaryStorage } = require('multer-storage-cloudinary');
+
+          we will use the above cloudinary,storage in listing.js
+
+stage 2:
+   1. edit image listing 
+   2. image preview in edit 
+   3. maps 
+   4. geocoding
+   5. storing coordinates
+   6.map marker 
+   7. map popup
+   
+     we want a preview to know what was the previuos image so if we wish to upload or not 
+       3. maps 
+     google maps api alternative https://www.mapbox.com/
+      4. geocoding
+        convert address into latitude and longitude which u can use to place markers on a map or position the map
+        here i used: openstreetmap, leaflet
+        https://docs.mapbox.com/mapbox-gl-js/example/add-a-marker/
+
+  stage 3:
+  
+
 

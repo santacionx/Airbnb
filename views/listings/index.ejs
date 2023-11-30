@@ -1,21 +1,60 @@
 <% layout('/layouts/boilerplate') -%>
 
+
 <body>
-  <h3 class="heading">All Listings</h3>
-  <div class="container1 no-side-margin">
+  <div class="container mt-3">
+    <!-- Filters Section -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="filters" id="filters">
+          <div class="d-flex flex-wrap align-items-center">
+            <div class="filter">
+              <i class="fas fa-fire"></i>
+              Trending
+            </div>
+            <div class="filter">
+              <i class="fas fa-bed"></i>
+              Rooms
+            </div>
+            <div class="filter">
+              <i class="fas fa-mountain"></i>
+              Mountain
+            </div>
+            <div class="filter">
+              <i class="fab fa-fort-awesome"></i>
+              Castles
+            </div>
+            <div class="filter">
+              <i class="fas fa-water"></i>
+              Amazing Pools
+            </div>
+            <div class="filter">
+              <i class="fas fa-plane"></i>
+              Travel
+            </div>
+            <div class="filter">
+              <i class="fas fa-hotel"></i>
+              Hotels
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="container1 no-side-margin mt-3">
     <% for(let listing of allListings) { %>
       <% if (listing.image.url) { %>
         <a href="/listings/<%= listing._id %>">
           <div class="card col-lg-4 col-md-4 col-sm-6 col-12" style="width: 17rem;">
             <img src="<%= listing.image.url%>" class="card-img-top show-img" alt="listing image" style="height:15rem;">
             <div class="card-body">
-              <p class="card-text"><%= listing.title %></p>
-              <p class="card-text">&#8377; <%= listing.price.toLocaleString("en-IN") %> night</p>
+              <p class="card-text " ><%= listing.title %></p>
+              <p class="card-text">&#8377; <%= listing.price %> night</p>
             </div>
           </div>
         </a>
       <% } %>
     <% } %>
+  </div>
   </div>
 </body>
 </html>
