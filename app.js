@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname,"public")));
 // cookies
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
+const MongoStore = require('connect-mongo');
 var flash = require('connect-flash');
 
 // override with POST having ?_method=DELETE
@@ -46,6 +47,7 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 const mongoose = require('mongoose');
 const { error } = require('console');
+const dburl=process.env.ATLAST_DB
 main().then((res)=>{
     console.log("mongoose connection sucess")
 }).catch((err)=>{
@@ -53,15 +55,26 @@ main().then((res)=>{
 })
 .catch(err => console.log(err));
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+  await mongoose.connect(dburl);
 
 }
 // app.get("/",(req,res)=>{
 //     res.send("air bnb");
 // })
 // session and flash 
+const store=MongoStore.create({
+  mongoUrl:dburl,
+  crypto:{
+    secret:process.env.SECRET
+  },
+  touchAfter:24*3600
+})
+store.on("error",()=>{
+  console.log("error");
+})
 app.use(session({
-  secret: 'secret code',
+  store:store,
+  secret:process.env.SECRET,
   resave:false,
   saveUninitialized:true,
   cookie:{
@@ -70,6 +83,7 @@ app.use(session({
     httpOnly:true
   }
 }))
+
 app.use(flash());
 // password Authenticate
 app.use(passport.initialize());
